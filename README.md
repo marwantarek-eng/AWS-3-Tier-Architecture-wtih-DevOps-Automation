@@ -20,6 +20,8 @@ A production-ready, highly secure, and automated 3-tier architecture deployed on
 ---
 
 ## 🏗️ Architecture Overview
+![AWS 3-Tier Architecture Diagram](<img width="1400" height="782" alt="WhatsApp Image 2026-05-06 at 5 02 49 PM" src="https://github.com/user-attachments/assets/6fe21caa-8650-461c-8b8c-31ee56747c81" />
+)
 
 The core objective of this architecture is **Total Total Isolation** and robust security. The traffic flows strictly in a unidirectional path, ensuring that the backend application and database are completely shielded from the public internet.
 
