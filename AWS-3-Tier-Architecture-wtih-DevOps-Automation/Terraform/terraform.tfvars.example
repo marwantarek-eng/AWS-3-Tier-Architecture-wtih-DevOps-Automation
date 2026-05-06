@@ -1,0 +1,7 @@
+# ==========================================
+# terraform.tfvars.example
+# ==========================================
+# You can save here database user & password because it's ignored in .gitignore file
+
+db_username = "YOUR_DB_USERNAME_HERE"
+db_password = "YOUR_STRONG_PASSWORD_HERE"

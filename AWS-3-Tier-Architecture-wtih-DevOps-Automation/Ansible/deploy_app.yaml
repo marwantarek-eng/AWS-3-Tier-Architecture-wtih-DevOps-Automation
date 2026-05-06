@@ -1,0 +1,63 @@
+---
+- name: Deploy Backend Application
+  hosts: backend
+  become: yes
+  vars:
+    rds_endpoint: "Your RDS Endpoint"
+    db_user: "Your DB Username"
+    db_pass: "Your DB Password"
+    db_name: "Your DB Name"
+  tasks:
+    - name: Create backend directory
+      file:
+        path: /home/ec2-user/app
+        state: directory
+    - name: Create docker-compose.yml for backend
+      copy:
+        dest: /home/ec2-user/app/docker-compose.yml
+        content: |
+          version: '3.8'
+          services:
+            backend:
+              image: omarhesham249/notes-backend:latest
+              container_name: notes_backend
+              restart: always
+              ports:
+                - "3001:3001"
+              environment:
+                - DB_HOST={{ rds_endpoint }}
+                - DB_USER={{ db_user }}
+                - DB_PASSWORD={{ db_pass }}
+                - DB_NAME={{ db_name }}
+    - name: Pull and Start Backend Container
+      command: /usr/local/bin/docker-compose up -d --pull always
+      args:
+        chdir: /home/ec2-user/app
+- name: Deploy Frontend Application
+  hosts: frontend
+  become: yes
+  vars:
+    internal_alb_dns: "Your Internal ALB DNS"
+  tasks:
+    - name: Create frontend directory
+      file:
+        path: /home/ec2-user/app
+        state: directory
+    - name: Create docker-compose.yml for frontend
+      copy:
+        dest: /home/ec2-user/app/docker-compose.yml
+        content: |
+          version: '3.8'
+          services:
+            frontend:
+              image: omarhesham249/notes-frontend:latest
+              container_name: notes_frontend
+              restart: always
+              ports:
+                - "80:80"
+              environment:
+                - BACKEND_URL={{ internal_alb_dns }}
+    - name: Pull and Start Frontend Container
+      command: /usr/local/bin/docker-compose up -d --pull always
+      args:
+        chdir: /home/ec2-user/app

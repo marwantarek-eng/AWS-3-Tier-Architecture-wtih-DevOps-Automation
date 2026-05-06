@@ -1,0 +1,39 @@
+# ==========================================
+# Terraform Sensitive & Generated Files
+# ==========================================
+
+terraform.tfvars
+*.tfvars
+!*.tfvars.example
+
+# Terraform State Files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+
+.terraform/
+
+# Crash Logs
+crash.log
+crash.*.log
+
+# Override Files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI Config
+.terraformrc
+terraform.rc
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
