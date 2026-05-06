@@ -9,8 +9,13 @@
 
 A production-ready, highly secure, and automated 3-tier architecture deployed on Amazon Web Services (AWS). This project provisions the underlying infrastructure using **Terraform**, orchestrates containerized application deployment using **Ansible** & **Docker**, and implements strict network isolation best practices.
 
-👨‍💻 **Developed by:** **Omar Hesham , Marwaan Tarek , Ahmed kamel** 
-🎓 **Affiliation:** Information Technology Institute (ITI) - System Administration Intensive Program.
+👨‍💻 Developed by:
+  • Omar Hesham
+  • Ahmed Kamel
+  • Marwan Tarek
+  • Adham Mamdouh
+
+🎓 Affiliation: Information Technology Institute (ITI) - System Administration Intensive Program
 
 ---
 
